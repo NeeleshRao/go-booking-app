@@ -3,11 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	
+
 	var confName string = "Go Conference"
 	const confTickets int = 50
 	var remainingTickets uint32 = 50
-	var booking [50]string
+	var booking []string
 
 	fmt.Printf("Welcome to the %v conference!\n", confName)
 	fmt.Printf("There are a total of %v tickets with only %v remaining...\n", confTickets, remainingTickets)
@@ -30,12 +30,13 @@ func main() {
 	fmt.Scan(&userTickets)
 
 	remainingTickets -= userTickets
-	booking[0] = firstName + " " + lastName
 
-	fmt.Printf("The booking array is %v\n", booking)
-	fmt.Printf("The first element of the array is %v\n", booking[0])
-	fmt.Printf("The type of the array is %T\n", booking)
-	fmt.Printf("The length of the array is %v\n", len(booking))
+	booking = append(booking, firstName+" "+lastName)
+
+	fmt.Printf("The booking slice is %v\n", booking)
+	fmt.Printf("The first element of the slice is %v\n", booking[0])
+	fmt.Printf("The type of the slice is %T\n", booking)
+	fmt.Printf("The length of the slice is %v\n", len(booking))
 
 	fmt.Printf("Thank you %v %v for booking %v tickets\n", firstName, lastName, userTickets)
 	fmt.Printf("A confirmation mail will be sent to your email - %v\n", email)
