@@ -60,14 +60,6 @@ func userInput() (string, string, string, uint32) {
 	return firstName, lastName, email, userTickets
 }
 
-func validateInput(firstName string, lastName string, email string, userTickets uint32, remainingTickets uint32) (bool, bool, bool) {
-	// validating user input
-	var isValidName bool = len(firstName) >= 2 && len(lastName) >= 2
-	var isValidEmail = strings.Contains(email, "@")
-	var isValidTickets = userTickets <= remainingTickets
-	return isValidName, isValidEmail, isValidTickets
-}
-
 func displayError(isValidName bool, isValidEmail bool, isValidTickets bool) {
 	if !isValidName {
 		fmt.Println("You have entered a very short name (min 2 characters)!")
